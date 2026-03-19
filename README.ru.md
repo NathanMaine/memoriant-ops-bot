@@ -29,11 +29,14 @@
 
 Zapuskajte Claude Code, OpenAI Codex CLI ili Google Gemini CLI iz Telegram ili Matrix. Ispolzuet tolko oficialnye CLI kak subprocessy -- nichego poddelnogo, nichego proksirovanogo. Vasha podpiska, vasha mashina, vashi dannye.
 
+<p align="center">
+  <img src="docs/images/mops-demo.gif" alt="MOPS Demo" width="300">
+</p>
+
 > **Vypushhen 12 marta 2026** -- za pjat dnej do togo, kak Anthropic vypustila [Claude Dispatch](https://mlq.ai/news/anthropic-launches-claude-dispatch-for-remote-desktop-ai-control/). Ta zhe koncepcija, drugaja filosofija.
 
-<details>
-<summary><strong>Chem eto otlichaetsja ot Claude Dispatch?</strong></summary>
-<br>
+### Chem eto otlichaetsja ot Claude Dispatch?
+
 
 |  | MOPS | Claude Dispatch |
 |---|---|---|
@@ -46,8 +49,6 @@ Zapuskajte Claude Code, OpenAI Codex CLI ili Google Gemini CLI iz Telegram ili M
 | **Fonovye zadachi** | Da, s delegirovaniem + otchetami | Da |
 | **Imenovannye sessii** | Da | Net |
 | **Sistema plaginov** | Da -- dobavte Discord, Slack, Signal | Net |
-
-</details>
 
 ---
 
