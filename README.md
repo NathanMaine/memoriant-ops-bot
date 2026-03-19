@@ -35,9 +35,8 @@ Run Claude Code, OpenAI Codex CLI, or Google Gemini CLI from Telegram or Matrix.
 
 > **Released March 12, 2026** — five days before Anthropic shipped [Claude Dispatch](https://mlq.ai/news/anthropic-launches-claude-dispatch-for-remote-desktop-ai-control/). Same concept, different philosophy.
 
-<details>
-<summary><strong>How does this compare to Claude Dispatch?</strong></summary>
-<br>
+### How does this compare to Claude Dispatch?
+
 
 |  | MOPS | Claude Dispatch |
 |---|---|---|
@@ -50,8 +49,6 @@ Run Claude Code, OpenAI Codex CLI, or Google Gemini CLI from Telegram or Matrix.
 | **Background tasks** | Yes, with delegation + follow-ups | Yes |
 | **Named sessions** | Yes | No |
 | **Plugin system** | Yes — add Discord, Slack, Signal | No |
-
-</details>
 
 ---
 
