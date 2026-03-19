@@ -1,5 +1,10 @@
 <p align="center">
-  <strong>MOPS</strong><br>
+  <img src="docs/images/mops-logo.jpeg" alt="MOPS" width="280">
+</p>
+
+<h1 align="center">MOPS</h1>
+
+<p align="center">
   <em>Multi-provider AI agent control from your phone.</em>
 </p>
 

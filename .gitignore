@@ -57,3 +57,9 @@ desktop.ini
 start_bot.sh
 python_best_practice.md
 run.py
+
+# Marketing / internal docs (not for public repo)
+ARTICLE-*.md
+marketing/
+social-posts/
+image-prompts/
