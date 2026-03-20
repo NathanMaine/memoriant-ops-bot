@@ -57,14 +57,61 @@ Gebruik Claude Code, OpenAI Codex CLI of Google Gemini CLI vanuit Telegram of Ma
 
 ## Snelle Start
 
+**Stap 1: Python installeren** (overslaan als je Python 3.11+ hebt)
+
 ```bash
-pipx install .
+# macOS
+brew install python@3.11
+
+# Ubuntu/Debian
+sudo apt update && sudo apt install python3 python3-pip python3-venv
+
+# Windows — download van https://www.python.org/downloads/
+# ✅ Vink "Add Python to PATH" aan tijdens installatie
+```
+
+**Stap 2: pipx installeren** (hulpmiddel voor Python-apps)
+
+```bash
+# macOS
+brew install pipx && pipx ensurepath
+
+# Linux
+pip install pipx && pipx ensurepath
+
+# Windows
+pip install pipx
+pipx ensurepath
+```
+
+> Na `pipx ensurepath`, **sluit je terminal en open opnieuw**.
+
+**Stap 3: MOPS installeren**
+
+```bash
+pipx install memoriant-ops-bot
+```
+
+**Stap 4: Minstens één AI-CLI installeren** (de agent die MOPS aanstuurt)
+
+```bash
+# Kies een of meer:
+npm install -g @anthropic-ai/claude-code && claude auth     # Claude
+npm install -g @openai/codex && codex auth                   # Codex
+npm install -g @google/gemini-cli                            # Gemini
+```
+
+> Node.js niet geïnstalleerd? Eerst installeren: `brew install node` (macOS) of `sudo apt install nodejs npm` (Linux) of download van [nodejs.org](https://nodejs.org)
+
+**Stap 5: Telegram-bot-token aanmaken** — zie [Telegram-instelling](docs/telegram-setup.md)
+
+**Stap 6: MOPS starten**
+
+```bash
 mops
 ```
 
-De onboarding-wizard begeleidt je door CLI-detectie, transport-setup (Telegram of Matrix), tijdzone, optionele Docker-sandbox en installatie als achtergronddienst.
-
-**Vereisten:** Python 3.11+, minstens een CLI (`claude`, `codex` of `gemini`) en een [Telegram-bot-token](https://t.me/BotFather) of Matrix-account.
+De wizard begeleidt je door transport-setup (Telegram of Matrix), tijdzone, optionele Docker-sandbox en installatie als achtergronddienst.
 
 ---
 

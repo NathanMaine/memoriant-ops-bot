@@ -57,14 +57,61 @@ Lancez Claude Code, OpenAI Codex CLI ou Google Gemini CLI depuis Telegram ou Mat
 
 ## Demarrage rapide
 
+**Etape 1 : Installer Python** (passer si Python 3.11+ est deja installe)
+
 ```bash
-pipx install .
+# macOS
+brew install python@3.11
+
+# Ubuntu/Debian
+sudo apt update && sudo apt install python3 python3-pip python3-venv
+
+# Windows — telecharger depuis https://www.python.org/downloads/
+# ✅ Cocher "Add Python to PATH" pendant l'installation
+```
+
+**Etape 2 : Installer pipx** (outil pour les applications Python)
+
+```bash
+# macOS
+brew install pipx && pipx ensurepath
+
+# Linux
+pip install pipx && pipx ensurepath
+
+# Windows
+pip install pipx
+pipx ensurepath
+```
+
+> Apres `pipx ensurepath`, **fermez et rouvrez votre terminal**.
+
+**Etape 3 : Installer MOPS**
+
+```bash
+pipx install memoriant-ops-bot
+```
+
+**Etape 4 : Installer au moins un CLI IA** (l'agent que MOPS controlera)
+
+```bash
+# Choisir un ou plusieurs :
+npm install -g @anthropic-ai/claude-code && claude auth     # Claude
+npm install -g @openai/codex && codex auth                   # Codex
+npm install -g @google/gemini-cli                            # Gemini
+```
+
+> Node.js manquant ? Installer d'abord : `brew install node` (macOS) ou `sudo apt install nodejs npm` (Linux) ou telecharger depuis [nodejs.org](https://nodejs.org)
+
+**Etape 5 : Creer un token de bot Telegram** — voir le [Guide Telegram](docs/telegram-setup.md)
+
+**Etape 6 : Lancer MOPS**
+
+```bash
 mops
 ```
 
-L'assistant d'integration vous guide a travers la detection CLI, la configuration du transport (Telegram ou Matrix), le fuseau horaire, la sandbox Docker optionnelle et l'installation du service d'arriere-plan.
-
-**Prerequis :** Python 3.11+, au moins un CLI (`claude`, `codex` ou `gemini`) et un [token de bot Telegram](https://t.me/BotFather) ou un compte Matrix.
+L'assistant vous guide a travers la configuration du transport (Telegram ou Matrix), le fuseau horaire, la sandbox Docker optionnelle et l'installation du service.
 
 ---
 

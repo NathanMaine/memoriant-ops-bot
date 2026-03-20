@@ -57,14 +57,61 @@ Execute Claude Code, OpenAI Codex CLI ou Google Gemini CLI a partir do Telegram 
 
 ## Inicio rapido
 
+**Passo 1: Instalar Python** (pular se já tem Python 3.11+)
+
 ```bash
-pipx install .
+# macOS
+brew install python@3.11
+
+# Ubuntu/Debian
+sudo apt update && sudo apt install python3 python3-pip python3-venv
+
+# Windows — baixar de https://www.python.org/downloads/
+# ✅ Marque "Add Python to PATH" durante a instalação
+```
+
+**Passo 2: Instalar pipx** (ferramenta para aplicações Python)
+
+```bash
+# macOS
+brew install pipx && pipx ensurepath
+
+# Linux
+pip install pipx && pipx ensurepath
+
+# Windows
+pip install pipx
+pipx ensurepath
+```
+
+> Após `pipx ensurepath`, **feche e reabra o terminal**.
+
+**Passo 3: Instalar MOPS**
+
+```bash
+pipx install memoriant-ops-bot
+```
+
+**Passo 4: Instalar pelo menos um CLI de IA** (o agente que MOPS controlará)
+
+```bash
+# Escolha um ou mais:
+npm install -g @anthropic-ai/claude-code && claude auth     # Claude
+npm install -g @openai/codex && codex auth                   # Codex
+npm install -g @google/gemini-cli                            # Gemini
+```
+
+> Não tem Node.js? Instale primeiro: `brew install node` (macOS) ou `sudo apt install nodejs npm` (Linux) ou baixe de [nodejs.org](https://nodejs.org)
+
+**Passo 5: Criar um token de bot do Telegram** — veja o [Guia de Configuração do Telegram](docs/telegram-setup.md)
+
+**Passo 6: Executar MOPS**
+
+```bash
 mops
 ```
 
-O assistente de configuracao guia voce pela deteccao de CLI, configuracao de transporte (Telegram ou Matrix), fuso horario, sandbox Docker opcional e instalacao do servico em segundo plano.
-
-**Voce precisa de:** Python 3.11+, pelo menos um CLI (`claude`, `codex` ou `gemini`) e um [token de bot do Telegram](https://t.me/BotFather) ou conta Matrix.
+O assistente guia você pela configuração de transporte (Telegram ou Matrix), fuso horário, sandbox Docker opcional e instalação do serviço.
 
 ---
 

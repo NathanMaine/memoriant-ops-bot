@@ -57,14 +57,61 @@ Zapuskajte Claude Code, OpenAI Codex CLI ili Google Gemini CLI iz Telegram ili M
 
 ## Bystryj start
 
+**Shag 1: Ustanovite Python** (propustite, esli Python 3.11+ uzhe ustanovlen)
+
 ```bash
-pipx install .
+# macOS
+brew install python@3.11
+
+# Ubuntu/Debian
+sudo apt update && sudo apt install python3 python3-pip python3-venv
+
+# Windows — skachajte s https://www.python.org/downloads/
+# ✅ Otmetjte "Add Python to PATH" pri ustanovke
+```
+
+**Shag 2: Ustanovite pipx** (instrument dlja Python-prilozhenij)
+
+```bash
+# macOS
+brew install pipx && pipx ensurepath
+
+# Linux
+pip install pipx && pipx ensurepath
+
+# Windows
+pip install pipx
+pipx ensurepath
+```
+
+> Posle `pipx ensurepath` **zakrojte i zanovo otkrojte terminal**.
+
+**Shag 3: Ustanovite MOPS**
+
+```bash
+pipx install memoriant-ops-bot
+```
+
+**Shag 4: Ustanovite hotja by odin AI CLI** (agent, kotorym MOPS budet upravljat)
+
+```bash
+# Vyberite odin ili neskolko:
+npm install -g @anthropic-ai/claude-code && claude auth     # Claude
+npm install -g @openai/codex && codex auth                   # Codex
+npm install -g @google/gemini-cli                            # Gemini
+```
+
+> Net Node.js? Snachala ustanovite: `brew install node` (macOS) ili `sudo apt install nodejs npm` (Linux) ili skachajte s [nodejs.org](https://nodejs.org)
+
+**Shag 5: Sozdajte token Telegram-bota** — sm. [Nastrojka Telegram](docs/telegram-setup.md)
+
+**Shag 6: Zapustite MOPS**
+
+```bash
 mops
 ```
 
-Pomoshhnik po nastrojke provodit vas cherez obnaruzhenie CLI, nastrojku transporta (Telegram ili Matrix), chasovoj pojas, opcionalnuju Docker-sandbox i ustanovku fonovogo servisa.
-
-**Trebovanija:** Python 3.11+, hotja by odin CLI (`claude`, `codex` ili `gemini`) i [token Telegram-bota](https://t.me/BotFather) ili uchetnaja zapis Matrix.
+Pomoshhnik po nastrojke provodit vas cherez nastrojku transporta (Telegram ili Matrix), chasovoj pojas, Docker-sandbox i ustanovku servisa.
 
 ---
 
