@@ -28,7 +28,7 @@ class TestGeneratePlistData:
 
     def test_has_label(self) -> None:
         data = _generate_plist_data("mops")
-        assert data["Label"] == "dev.mops"
+        assert data["Label"] == "inc.memoriant.mops"
 
     def test_has_run_at_load(self) -> None:
         data = _generate_plist_data("mops")
@@ -80,7 +80,7 @@ class TestGeneratePlistData:
         data = _generate_plist_data("mops")
         plist_bytes = plistlib.dumps(data, fmt=plistlib.FMT_XML)
         parsed = plistlib.loads(plist_bytes)
-        assert parsed["Label"] == "dev.mops"
+        assert parsed["Label"] == "inc.memoriant.mops"
         assert parsed["RunAtLoad"] is True
 
 
@@ -106,7 +106,7 @@ class TestIsServiceRunning:
     def test_running_when_pid_present(self, _installed: MagicMock, mock_run: MagicMock) -> None:
         mock_run.return_value = make_completed(
             0,
-            stdout='{\n\t"PID" = 12345;\n\t"Label" = "dev.mops";\n};',
+            stdout='{\n\t"PID" = 12345;\n\t"Label" = "inc.memoriant.mops";\n};',
         )
         assert is_service_running() is True
 
@@ -115,7 +115,7 @@ class TestIsServiceRunning:
     def test_not_running_when_no_pid(self, _installed: MagicMock, mock_run: MagicMock) -> None:
         mock_run.return_value = make_completed(
             0,
-            stdout='{\n\t"Label" = "dev.mops";\n\t"LastExitStatus" = 0;\n};',
+            stdout='{\n\t"Label" = "inc.memoriant.mops";\n\t"LastExitStatus" = 0;\n};',
         )
         assert is_service_running() is False
 
@@ -160,7 +160,7 @@ class TestInstallService:
 
         # Verify the plist is valid
         plist_data = plistlib.loads(plist_file.read_bytes())
-        assert plist_data["Label"] == "dev.mops"
+        assert plist_data["Label"] == "inc.memoriant.mops"
 
     @patch("memoriant_ops_bot.infra.service_macos.is_service_available", return_value=False)
     def test_install_fails_without_launchctl(self, _avail: MagicMock) -> None:

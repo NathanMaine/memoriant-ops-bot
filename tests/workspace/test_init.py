@@ -5,8 +5,27 @@ from __future__ import annotations
 import json
 from pathlib import Path
 
+from unittest.mock import patch
+
+import pytest
+
+from memoriant_ops_bot.cli.auth import AuthResult, AuthStatus
 from memoriant_ops_bot.workspace.init import init_workspace, inject_runtime_environment
 from memoriant_ops_bot.workspace.paths import MopsPaths
+
+
+def _fake_check_all_auth() -> dict[str, AuthResult]:
+    return {
+        "claude": AuthResult(provider="claude", status=AuthStatus.AUTHENTICATED),
+        "codex": AuthResult(provider="codex", status=AuthStatus.AUTHENTICATED),
+        "gemini": AuthResult(provider="gemini", status=AuthStatus.AUTHENTICATED),
+    }
+
+
+@pytest.fixture(autouse=True)
+def _mock_cli_auth():
+    with patch("memoriant_ops_bot.cli.auth.check_all_auth", _fake_check_all_auth):
+        yield
 
 
 def _setup_home_defaults(fw_root: Path) -> None:

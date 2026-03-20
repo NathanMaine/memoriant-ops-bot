@@ -126,7 +126,7 @@ class TestBuildWelcomeText:
     def test_static_content_present(self) -> None:
         from memoriant_ops_bot.messenger.telegram.welcome import build_welcome_text
 
-        text = build_welcome_text("X", {}, _config())
+        text = build_welcome_text("X", {"claude": _auth("claude")}, _config())
 
         assert "Deploy from your pocket" in text
         assert "Claude Code" in text
