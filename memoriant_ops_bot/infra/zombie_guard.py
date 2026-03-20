@@ -30,10 +30,10 @@ logger = logging.getLogger(__name__)
 
 # -- Configuration -------------------------------------------------------------
 
-IDLE_WARNING_SECONDS = 30 * 60       # 30 minutes
+IDLE_WARNING_SECONDS = 30 * 60  # 30 minutes
 IDLE_TERMINATE_SECONDS = 2 * 60 * 60  # 2 hours
-HEARTBEAT_INTERVAL_SECONDS = 60       # Check every 60 seconds
-STDIN_CHECK_INTERVAL_SECONDS = 5       # Check stdin every 5 seconds
+HEARTBEAT_INTERVAL_SECONDS = 60  # Check every 60 seconds
+STDIN_CHECK_INTERVAL_SECONDS = 5  # Check stdin every 5 seconds
 
 
 class ZombieGuard:
@@ -94,9 +94,7 @@ class ZombieGuard:
 
         # Only check stdin if we're not on Windows (stdin EOF detection)
         if sys.platform != "win32":
-            self._tasks.append(
-                asyncio.create_task(self._stdin_eof_loop(), name="zombie-stdin")
-            )
+            self._tasks.append(asyncio.create_task(self._stdin_eof_loop(), name="zombie-stdin"))
 
         logger.info(
             "ZombieGuard started: parent_pid=%d, idle_warning=%ds, idle_terminate=%ds",
@@ -212,8 +210,7 @@ class ZombieGuard:
 
                 if idle_seconds >= self._idle_warning and not self._warned_idle:
                     logger.warning(
-                        "ZombieGuard: idle for %.0f minutes "
-                        "(will terminate at %.0f minutes)",
+                        "ZombieGuard: idle for %.0f minutes (will terminate at %.0f minutes)",
                         idle_seconds / 60,
                         self._idle_terminate / 60,
                     )

@@ -538,7 +538,10 @@ class TestQueueManagement:
         assert not mw.has_pending(1)
 
     async def test_cancel_entry_marks_cancelled(self) -> None:
-        from memoriant_ops_bot.messenger.telegram.middleware import SequentialMiddleware, _QueueEntry
+        from memoriant_ops_bot.messenger.telegram.middleware import (
+            SequentialMiddleware,
+            _QueueEntry,
+        )
 
         mw = SequentialMiddleware()
         entry = _QueueEntry(entry_id=1, chat_id=10, message_id=100, text_preview="test")
@@ -557,7 +560,10 @@ class TestQueueManagement:
         assert result is False
 
     async def test_drain_pending_cancels_all(self) -> None:
-        from memoriant_ops_bot.messenger.telegram.middleware import SequentialMiddleware, _QueueEntry
+        from memoriant_ops_bot.messenger.telegram.middleware import (
+            SequentialMiddleware,
+            _QueueEntry,
+        )
 
         mw = SequentialMiddleware()
         entries = [
@@ -571,7 +577,10 @@ class TestQueueManagement:
         assert all(e.cancelled for e in entries)
 
     async def test_drain_pending_skips_already_cancelled(self) -> None:
-        from memoriant_ops_bot.messenger.telegram.middleware import SequentialMiddleware, _QueueEntry
+        from memoriant_ops_bot.messenger.telegram.middleware import (
+            SequentialMiddleware,
+            _QueueEntry,
+        )
 
         mw = SequentialMiddleware()
         e1 = _QueueEntry(entry_id=1, chat_id=10, message_id=101, text_preview="a")

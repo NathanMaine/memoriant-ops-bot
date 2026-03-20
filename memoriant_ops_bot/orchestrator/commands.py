@@ -12,7 +12,10 @@ from memoriant_ops_bot.i18n import t
 from memoriant_ops_bot.infra.version import check_pypi, get_current_version
 from memoriant_ops_bot.orchestrator.registry import OrchestratorResult
 from memoriant_ops_bot.orchestrator.selectors.cron_selector import cron_selector_start
-from memoriant_ops_bot.orchestrator.selectors.model_selector import model_selector_start, switch_model
+from memoriant_ops_bot.orchestrator.selectors.model_selector import (
+    model_selector_start,
+    switch_model,
+)
 from memoriant_ops_bot.orchestrator.selectors.models import Button, ButtonGrid
 from memoriant_ops_bot.orchestrator.selectors.session_selector import session_selector_start
 from memoriant_ops_bot.orchestrator.selectors.task_selector import task_selector_start

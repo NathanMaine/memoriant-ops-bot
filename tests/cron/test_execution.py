@@ -97,7 +97,9 @@ class TestBuildCmd:
             working_dir="/tmp",
             file_access="all",
         )
-        with patch("memoriant_ops_bot.cron.execution.find_gemini_cli", return_value="/usr/bin/gemini"):
+        with patch(
+            "memoriant_ops_bot.cron.execution.find_gemini_cli", return_value="/usr/bin/gemini"
+        ):
             result = build_cmd(exec_config, "hello")
         assert result is not None
         assert result.cmd[0] == "/usr/bin/gemini"

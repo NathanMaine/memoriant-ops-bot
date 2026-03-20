@@ -390,9 +390,7 @@ def test_check_gemini_auth_selected_type_gemini_api_key(
     assert result.auth_file == settings
 
 
-def test_check_gemini_auth_mops_config_key(
-    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
-) -> None:
+def test_check_gemini_auth_mops_config_key(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> None:
     import memoriant_ops_bot.cli.auth as _auth_mod
 
     monkeypatch.setattr(Path, "home", lambda: tmp_path)

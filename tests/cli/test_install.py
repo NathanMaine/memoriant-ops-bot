@@ -135,7 +135,9 @@ class TestInstallExtra:
                 return_value="pip",
             ),
             patch("memoriant_ops_bot.cli_commands.install.subprocess.run") as mock_run,
-            patch("memoriant_ops_bot.cli_commands.install.Console", return_value=MagicMock()) as console,
+            patch(
+                "memoriant_ops_bot.cli_commands.install.Console", return_value=MagicMock()
+            ) as console,
         ):
             mock_run.return_value = MagicMock(returncode=1, stderr="some error")
             _install_extra("matrix")

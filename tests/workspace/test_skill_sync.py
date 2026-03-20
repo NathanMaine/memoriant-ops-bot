@@ -454,7 +454,9 @@ def test_permission_error_logged(tmp_path: Path, caplog: pytest.LogCaptureFixtur
     _make_skill(paths.skills_dir, "fail-skill")
     with (
         patch("memoriant_ops_bot.workspace.skill_sync._cli_skill_dirs") as mock_dirs,
-        patch("memoriant_ops_bot.workspace.skill_sync._create_dir_link", side_effect=OSError("denied")),
+        patch(
+            "memoriant_ops_bot.workspace.skill_sync._create_dir_link", side_effect=OSError("denied")
+        ),
     ):
         mock_dirs.return_value = {"claude": claude_skills}
         sync_skills(paths)

@@ -15,7 +15,12 @@ from aiogram.enums import ParseMode
 from aiogram.exceptions import TelegramBadRequest, TelegramNetworkError
 from aiogram.types import FSInputFile, InlineKeyboardMarkup, ReplyParameters
 
-from memoriant_ops_bot.files.tags import FILE_PATH_RE, extract_file_paths, guess_mime, path_from_file_tag
+from memoriant_ops_bot.files.tags import (
+    FILE_PATH_RE,
+    extract_file_paths,
+    guess_mime,
+    path_from_file_tag,
+)
 from memoriant_ops_bot.messenger.send_opts import BaseSendOpts
 from memoriant_ops_bot.messenger.telegram.buttons import extract_buttons
 from memoriant_ops_bot.messenger.telegram.formatting import (

@@ -248,9 +248,7 @@ def _gemini_key_auth_source(gemini_home: Path) -> tuple[Path | None, datetime | 
 
     mops_key, mops_config_path = read_mops_gemini_api_key()
     if mops_key and mops_config_path is not None:
-        return mops_config_path, datetime.fromtimestamp(
-            mops_config_path.stat().st_mtime, tz=UTC
-        )
+        return mops_config_path, datetime.fromtimestamp(mops_config_path.stat().st_mtime, tz=UTC)
     return None, None
 
 

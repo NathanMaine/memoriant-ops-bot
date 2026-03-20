@@ -99,7 +99,9 @@ class TestInit:
             CodexCLI(CLIConfig(provider="codex"))
 
     def test_find_cli_uses_resolved_path(self, monkeypatch: pytest.MonkeyPatch) -> None:
-        monkeypatch.setattr("memoriant_ops_bot.cli.codex_provider.which", lambda _: "/opt/bin/codex")
+        monkeypatch.setattr(
+            "memoriant_ops_bot.cli.codex_provider.which", lambda _: "/opt/bin/codex"
+        )
         cli = CodexCLI(CLIConfig(provider="codex"))
         assert cli._cli == "/opt/bin/codex"
 
@@ -109,7 +111,9 @@ class TestInit:
         assert cli._cli == "codex"
 
     def test_working_dir_resolved(self, monkeypatch: pytest.MonkeyPatch, tmp_path: Path) -> None:
-        monkeypatch.setattr("memoriant_ops_bot.cli.codex_provider.which", lambda _: "/usr/bin/codex")
+        monkeypatch.setattr(
+            "memoriant_ops_bot.cli.codex_provider.which", lambda _: "/usr/bin/codex"
+        )
         cli = CodexCLI(CLIConfig(provider="codex", working_dir=str(tmp_path)))
         assert cli._working_dir == tmp_path.resolve()
 

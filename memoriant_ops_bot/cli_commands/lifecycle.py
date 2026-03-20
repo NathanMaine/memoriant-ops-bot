@@ -38,7 +38,11 @@ def _stop_service_if_running() -> None:
     import contextlib
 
     with contextlib.suppress(Exception):
-        from memoriant_ops_bot.infra.service import is_service_installed, is_service_running, stop_service
+        from memoriant_ops_bot.infra.service import (
+            is_service_installed,
+            is_service_running,
+            stop_service,
+        )
 
         if is_service_installed() and is_service_running():
             stop_service(_console)

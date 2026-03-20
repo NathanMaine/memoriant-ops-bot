@@ -117,7 +117,9 @@ class TestInit:
         assert cli._cli == "claude"
 
     def test_working_dir_resolved(self, monkeypatch: pytest.MonkeyPatch, tmp_path: Path) -> None:
-        monkeypatch.setattr("memoriant_ops_bot.cli.claude_provider.which", lambda _: "/usr/bin/claude")
+        monkeypatch.setattr(
+            "memoriant_ops_bot.cli.claude_provider.which", lambda _: "/usr/bin/claude"
+        )
         cfg = CLIConfig(provider="claude", working_dir=str(tmp_path / "sub" / ".."))
         cli = ClaudeCodeCLI(cfg)
         assert cli._working_dir == tmp_path.resolve()
@@ -153,7 +155,9 @@ class TestBuildCommand:
 
     def test_no_none_values_in_command(self, monkeypatch: pytest.MonkeyPatch) -> None:
         """Ensure optional None fields do not produce '--flag None' pairs."""
-        monkeypatch.setattr("memoriant_ops_bot.cli.claude_provider.which", lambda _: "/usr/bin/claude")
+        monkeypatch.setattr(
+            "memoriant_ops_bot.cli.claude_provider.which", lambda _: "/usr/bin/claude"
+        )
         cfg = CLIConfig(provider="claude", model=None, max_turns=None, max_budget_usd=None)
         cli = ClaudeCodeCLI(cfg)
         cmd = cli._build_command("go")

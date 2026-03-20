@@ -2,7 +2,10 @@
 
 from __future__ import annotations
 
-from memoriant_ops_bot.messenger.matrix.formatting import markdown_to_matrix_html, strip_button_markers
+from memoriant_ops_bot.messenger.matrix.formatting import (
+    markdown_to_matrix_html,
+    strip_button_markers,
+)
 
 
 class TestStripButtonMarkers:

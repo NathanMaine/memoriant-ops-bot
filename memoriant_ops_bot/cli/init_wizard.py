@@ -17,7 +17,12 @@ from rich.console import Console
 from rich.panel import Panel
 from rich.text import Text
 
-from memoriant_ops_bot.cli.auth import AuthStatus, check_claude_auth, check_codex_auth, check_gemini_auth
+from memoriant_ops_bot.cli.auth import (
+    AuthStatus,
+    check_claude_auth,
+    check_codex_auth,
+    check_gemini_auth,
+)
 from memoriant_ops_bot.config import DEFAULT_EMPTY_GEMINI_API_KEY, AgentConfig, deep_merge_config
 from memoriant_ops_bot.i18n import t_rich
 from memoriant_ops_bot.workspace.init import init_workspace

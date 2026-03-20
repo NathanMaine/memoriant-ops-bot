@@ -175,7 +175,9 @@ class TestSendFile:
         bot = MagicMock()
         bot.send_photo = AsyncMock()
         bot.send_document = AsyncMock()
-        with patch("memoriant_ops_bot.messenger.telegram.sender.guess_mime", return_value="image/heic"):
+        with patch(
+            "memoriant_ops_bot.messenger.telegram.sender.guess_mime", return_value="image/heic"
+        ):
             await send_file(bot, chat_id=1, path=img)
 
         bot.send_photo.assert_not_called()
@@ -189,7 +191,9 @@ class TestSendFile:
 
         bot = MagicMock()
         bot.send_video = AsyncMock()
-        with patch("memoriant_ops_bot.messenger.telegram.sender.guess_mime", return_value="video/mp4"):
+        with patch(
+            "memoriant_ops_bot.messenger.telegram.sender.guess_mime", return_value="video/mp4"
+        ):
             await send_file(bot, chat_id=1, path=video)
 
         bot.send_video.assert_called_once()
@@ -203,7 +207,9 @@ class TestSendFile:
         bot = MagicMock()
         bot.send_video = AsyncMock()
         bot.send_document = AsyncMock()
-        with patch("memoriant_ops_bot.messenger.telegram.sender.guess_mime", return_value="video/webm"):
+        with patch(
+            "memoriant_ops_bot.messenger.telegram.sender.guess_mime", return_value="video/webm"
+        ):
             await send_file(bot, chat_id=1, path=video)
 
         bot.send_video.assert_not_called()
@@ -217,7 +223,9 @@ class TestSendFile:
 
         bot = MagicMock()
         bot.send_audio = AsyncMock()
-        with patch("memoriant_ops_bot.messenger.telegram.sender.guess_mime", return_value="audio/mpeg"):
+        with patch(
+            "memoriant_ops_bot.messenger.telegram.sender.guess_mime", return_value="audio/mpeg"
+        ):
             await send_file(bot, chat_id=1, path=audio)
 
         bot.send_audio.assert_called_once()
@@ -231,7 +239,9 @@ class TestSendFile:
         bot = MagicMock()
         bot.send_audio = AsyncMock()
         bot.send_document = AsyncMock()
-        with patch("memoriant_ops_bot.messenger.telegram.sender.guess_mime", return_value="audio/wav"):
+        with patch(
+            "memoriant_ops_bot.messenger.telegram.sender.guess_mime", return_value="audio/wav"
+        ):
             await send_file(bot, chat_id=1, path=audio)
 
         bot.send_audio.assert_not_called()
@@ -259,7 +269,9 @@ class TestSendFile:
         bot = MagicMock()
         bot.send_video = AsyncMock(side_effect=TelegramBadRequest(MagicMock(), "bad video"))
         bot.send_document = AsyncMock()
-        with patch("memoriant_ops_bot.messenger.telegram.sender.guess_mime", return_value="video/mp4"):
+        with patch(
+            "memoriant_ops_bot.messenger.telegram.sender.guess_mime", return_value="video/mp4"
+        ):
             await send_file(bot, chat_id=1, path=video)
 
         bot.send_video.assert_called_once()
@@ -274,7 +286,9 @@ class TestSendFile:
         bot = MagicMock()
         bot.send_audio = AsyncMock(side_effect=TelegramBadRequest(MagicMock(), "bad audio"))
         bot.send_document = AsyncMock()
-        with patch("memoriant_ops_bot.messenger.telegram.sender.guess_mime", return_value="audio/mpeg"):
+        with patch(
+            "memoriant_ops_bot.messenger.telegram.sender.guess_mime", return_value="audio/mpeg"
+        ):
             await send_file(bot, chat_id=1, path=audio)
 
         bot.send_audio.assert_called_once()
@@ -464,7 +478,9 @@ class TestForumTopicSupport:
 
         bot = MagicMock()
         bot.send_video = AsyncMock()
-        with patch("memoriant_ops_bot.messenger.telegram.sender.guess_mime", return_value="video/mp4"):
+        with patch(
+            "memoriant_ops_bot.messenger.telegram.sender.guess_mime", return_value="video/mp4"
+        ):
             await send_file(bot, chat_id=1, path=video, thread_id=55)
 
         assert bot.send_video.call_args.kwargs["message_thread_id"] == 55
@@ -477,7 +493,9 @@ class TestForumTopicSupport:
 
         bot = MagicMock()
         bot.send_audio = AsyncMock()
-        with patch("memoriant_ops_bot.messenger.telegram.sender.guess_mime", return_value="audio/mpeg"):
+        with patch(
+            "memoriant_ops_bot.messenger.telegram.sender.guess_mime", return_value="audio/mpeg"
+        ):
             await send_file(bot, chat_id=1, path=audio, thread_id=55)
 
         assert bot.send_audio.call_args.kwargs["message_thread_id"] == 55

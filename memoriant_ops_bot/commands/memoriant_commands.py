@@ -48,9 +48,12 @@ async def _ssh_command(cmd: str, timeout: int = SSH_TIMEOUT) -> tuple[bool, str]
     try:
         proc = await asyncio.create_subprocess_exec(
             "ssh",
-            "-o", "ConnectTimeout=5",
-            "-o", "StrictHostKeyChecking=no",
-            "-o", "BatchMode=yes",
+            "-o",
+            "ConnectTimeout=5",
+            "-o",
+            "StrictHostKeyChecking=no",
+            "-o",
+            "BatchMode=yes",
             SPARK_HOST,
             cmd,
             stdout=asyncio.subprocess.PIPE,
@@ -72,8 +75,10 @@ async def _http_get(url: str, timeout: int = HTTP_TIMEOUT) -> tuple[bool, str]:
         proc = await asyncio.create_subprocess_exec(
             "curl",
             "-s",
-            "--connect-timeout", "5",
-            "--max-time", str(timeout),
+            "--connect-timeout",
+            "5",
+            "--max-time",
+            str(timeout),
             url,
             stdout=asyncio.subprocess.PIPE,
             stderr=asyncio.subprocess.PIPE,
@@ -135,8 +140,8 @@ async def cmd_spark() -> str:
 
     # GPU status
     ok, output = await _ssh_command(
-        'nvidia-smi --query-gpu=name,temperature.gpu,utilization.gpu,memory.used,memory.total '
-        '--format=csv,noheader,nounits 2>/dev/null'
+        "nvidia-smi --query-gpu=name,temperature.gpu,utilization.gpu,memory.used,memory.total "
+        "--format=csv,noheader,nounits 2>/dev/null"
     )
     if ok and output:
         lines.append("*GPU:*")
@@ -144,10 +149,7 @@ async def cmd_spark() -> str:
             parts = [p.strip() for p in line.split(",")]
             if len(parts) >= 5:
                 name, temp, util, mem_used, mem_total = parts[:5]
-                lines.append(
-                    f"  `{name}` | {temp}C | {util}% util | "
-                    f"{mem_used}/{mem_total} MB"
-                )
+                lines.append(f"  `{name}` | {temp}C | {util}% util | {mem_used}/{mem_total} MB")
             else:
                 lines.append(f"  `{line}`")
     else:
@@ -156,13 +158,12 @@ async def cmd_spark() -> str:
     lines.append("")
 
     # Disk usage
-    ok, output = await _ssh_command('df -h $HOME --output=size,used,avail,pcent | tail -1')
+    ok, output = await _ssh_command("df -h $HOME --output=size,used,avail,pcent | tail -1")
     if ok and output:
         parts = output.split()
         if len(parts) >= 4:
             lines.append(
-                f"*Disk (/home):* {parts[1]} / {parts[0]} "
-                f"({parts[3]} used, {parts[2]} free)"
+                f"*Disk (/home):* {parts[1]} / {parts[0]} ({parts[3]} used, {parts[2]} free)"
             )
         else:
             lines.append(f"*Disk:* `{output}`")
@@ -245,16 +246,13 @@ async def cmd_nas() -> str:
 
     for name, path in volumes:
         ok, output = await _ssh_command(
-            f'df -h {path} --output=size,used,avail,pcent 2>/dev/null | tail -1'
+            f"df -h {path} --output=size,used,avail,pcent 2>/dev/null | tail -1"
         )
         if ok and output:
             parts = output.split()
             if len(parts) >= 4:
                 warning = _usage_warning(parts[3])
-                lines.append(
-                    f"*{name}:* {parts[1]} / {parts[0]} "
-                    f"({parts[3]} used){warning}"
-                )
+                lines.append(f"*{name}:* {parts[1]} / {parts[0]} ({parts[3]} used){warning}")
             else:
                 lines.append(f"*{name}:* `{output}`")
         else:
@@ -268,16 +266,10 @@ async def cmd_report() -> str:
     report_path = Path(OPS_REPORT_PATH)
 
     if not report_path.exists():
-        return (
-            "*Ops Report*\n\n"
-            f"{_status_icon(False)} Report not found at:\n"
-            f"`{OPS_REPORT_PATH}`"
-        )
+        return f"*Ops Report*\n\n{_status_icon(False)} Report not found at:\n`{OPS_REPORT_PATH}`"
 
     try:
-        content = await asyncio.to_thread(
-            report_path.read_text, encoding="utf-8"
-        )
+        content = await asyncio.to_thread(report_path.read_text, encoding="utf-8")
     except OSError as e:
         return f"*Ops Report*\n\n{_status_icon(False)} Read error: {e}"
 
@@ -317,6 +309,7 @@ async def cmd_report() -> str:
     # Show last modified time
     mtime = report_path.stat().st_mtime
     from datetime import datetime
+
     mod_time = datetime.fromtimestamp(mtime).strftime("%Y-%m-%d %H:%M")
     lines_out.append(f"_Last updated: {mod_time}_")
 
@@ -326,13 +319,13 @@ async def cmd_report() -> str:
 async def cmd_models() -> str:
     """List all Ollama models on Spark."""
     ok, output = await _ssh_command(
-        'docker exec ollama ollama list 2>/dev/null',
+        "docker exec ollama ollama list 2>/dev/null",
         timeout=15,
     )
 
     if not ok:
         # Try direct ollama
-        ok, output = await _ssh_command('ollama list 2>/dev/null', timeout=15)
+        ok, output = await _ssh_command("ollama list 2>/dev/null", timeout=15)
 
     if not ok:
         return f"*Ollama Models*\n\n{_status_icon(False)} {output}"
@@ -417,9 +410,7 @@ async def cmd_experts() -> str:
             return "*Brain Trust Experts*\n\nNo collections found."
 
     # Scroll through points and group by creator
-    ok, body = await _http_get(
-        f"{QDRANT_URL}/collections/{target}/points/scroll"
-    )
+    ok, body = await _http_get(f"{QDRANT_URL}/collections/{target}/points/scroll")
     if not ok:
         return f"*Brain Trust Experts*\n\n{_status_icon(False)} {body}"
 
@@ -461,8 +452,8 @@ async def cmd_health() -> str:
     # 2. GPU
     if spark_ok:
         gpu_ok, gpu_out = await _ssh_command(
-            'nvidia-smi --query-gpu=utilization.gpu,temperature.gpu '
-            '--format=csv,noheader,nounits 2>/dev/null'
+            "nvidia-smi --query-gpu=utilization.gpu,temperature.gpu "
+            "--format=csv,noheader,nounits 2>/dev/null"
         )
         if gpu_ok and gpu_out:
             parts = [p.strip() for p in gpu_out.split(",")]
@@ -475,9 +466,7 @@ async def cmd_health() -> str:
 
     # 3. NAS
     if spark_ok:
-        nas_ok, _ = await _ssh_command(
-            'ls /mnt/nas/ai-models >/dev/null 2>&1 && echo ok'
-        )
+        nas_ok, _ = await _ssh_command("ls /mnt/nas/ai-models >/dev/null 2>&1 && echo ok")
         lines.append(f"*NAS:* {_status_icon(nas_ok)}")
     else:
         lines.append("*NAS:* unreachable (via Spark)")
@@ -497,7 +486,7 @@ async def cmd_health() -> str:
     # 5. Ollama
     if spark_ok:
         ollama_ok, ollama_out = await _ssh_command(
-            'docker exec ollama ollama list 2>/dev/null | wc -l'
+            "docker exec ollama ollama list 2>/dev/null | wc -l"
         )
         if ollama_ok:
             try:
@@ -513,8 +502,7 @@ async def cmd_health() -> str:
     # 6. Local machine
     load = os.getloadavg()
     lines.append(
-        f"\n*Local ({platform.node()}):*"
-        f"\n  Load: {load[0]:.1f} / {load[1]:.1f} / {load[2]:.1f}"
+        f"\n*Local ({platform.node()}):*\n  Load: {load[0]:.1f} / {load[1]:.1f} / {load[2]:.1f}"
     )
 
     return "\n".join(lines)

@@ -233,7 +233,10 @@ class TestBuildWelcomeKeyboard:
             assert len(row) == 1
 
     def test_callback_data_matches_welcome_keys(self) -> None:
-        from memoriant_ops_bot.messenger.telegram.welcome import WELCOME_CALLBACKS, build_welcome_keyboard
+        from memoriant_ops_bot.messenger.telegram.welcome import (
+            WELCOME_CALLBACKS,
+            build_welcome_keyboard,
+        )
 
         kb = build_welcome_keyboard()
         callback_keys = [row[0].callback_data for row in kb.inline_keyboard]
@@ -242,7 +245,10 @@ class TestBuildWelcomeKeyboard:
             assert key in WELCOME_CALLBACKS
 
     def test_button_labels_match_expected(self) -> None:
-        from memoriant_ops_bot.messenger.telegram.welcome import _BUTTON_LABELS, build_welcome_keyboard
+        from memoriant_ops_bot.messenger.telegram.welcome import (
+            _BUTTON_LABELS,
+            build_welcome_keyboard,
+        )
 
         kb = build_welcome_keyboard()
 

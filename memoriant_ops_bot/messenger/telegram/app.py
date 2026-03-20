@@ -340,7 +340,16 @@ class TelegramBot:
         for cmd in base_cmds:
             r.message(Command(cmd, ignore_case=True))(self._on_command)
         # Memoriant-specific infrastructure commands
-        memoriant_cmds = ["spark", "braintrust", "nas", "report", "models", "chunks", "experts", "health"]
+        memoriant_cmds = [
+            "spark",
+            "braintrust",
+            "nas",
+            "report",
+            "models",
+            "chunks",
+            "experts",
+            "health",
+        ]
         for cmd in memoriant_cmds:
             r.message(Command(cmd, ignore_case=True))(self._on_memoriant_command)
         r.message(F.forum_topic_created)(self._on_forum_topic_created)
@@ -1144,7 +1153,9 @@ class TelegramBot:
         if await self._route_prefix_callback(key, message_id, data, thread_id=thread_id):
             return True
 
-        from memoriant_ops_bot.orchestrator.selectors.model_selector import is_model_selector_callback
+        from memoriant_ops_bot.orchestrator.selectors.model_selector import (
+            is_model_selector_callback,
+        )
 
         if is_model_selector_callback(data):
             await self._handle_model_selector(key, message_id, data)
@@ -1175,7 +1186,9 @@ class TelegramBot:
             await self._handle_upgrade_callback(chat_id, message_id, data, thread_id=thread_id)
             return True
 
-        from memoriant_ops_bot.orchestrator.selectors.session_selector import is_session_selector_callback
+        from memoriant_ops_bot.orchestrator.selectors.session_selector import (
+            is_session_selector_callback,
+        )
         from memoriant_ops_bot.orchestrator.selectors.task_selector import is_task_selector_callback
 
         if is_session_selector_callback(data):
@@ -1210,7 +1223,9 @@ class TelegramBot:
 
     async def _handle_session_selector(self, chat_id: int, message_id: int, data: str) -> None:
         """Handle session selector wizard by editing the message in-place."""
-        from memoriant_ops_bot.orchestrator.selectors.session_selector import handle_session_callback
+        from memoriant_ops_bot.orchestrator.selectors.session_selector import (
+            handle_session_callback,
+        )
 
         async with self._sequential.get_lock(chat_id):
             resp = await handle_session_callback(self._orch, chat_id, data)

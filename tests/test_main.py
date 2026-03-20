@@ -642,7 +642,9 @@ class TestMainDispatch:
         with (
             patch("sys.argv", ["mops"]),
             patch("memoriant_ops_bot.__main__._is_configured", return_value=False),
-            patch("memoriant_ops_bot.cli.init_wizard.run_onboarding", return_value=False) as mock_onboard,
+            patch(
+                "memoriant_ops_bot.cli.init_wizard.run_onboarding", return_value=False
+            ) as mock_onboard,
             patch("memoriant_ops_bot.__main__._start_bot") as mock_start,
         ):
             main()

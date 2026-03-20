@@ -7,7 +7,16 @@ from pathlib import Path
 
 import pytest
 
-from memoriant_ops_bot.i18n import LANGUAGES, get_language, get_store, init, t, t_cmd, t_plural, t_rich
+from memoriant_ops_bot.i18n import (
+    LANGUAGES,
+    get_language,
+    get_store,
+    init,
+    t,
+    t_cmd,
+    t_plural,
+    t_rich,
+)
 from memoriant_ops_bot.i18n.loader import TranslationStore, _flatten, _load_toml
 
 # -- _flatten ------------------------------------------------------------------

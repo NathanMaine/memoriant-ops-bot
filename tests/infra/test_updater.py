@@ -199,7 +199,9 @@ class TestUpdateObserver:
         observer = UpdateObserver(notify=notify)
 
         with (
-            patch("memoriant_ops_bot.infra.updater.check_pypi", side_effect=RuntimeError("network")),
+            patch(
+                "memoriant_ops_bot.infra.updater.check_pypi", side_effect=RuntimeError("network")
+            ),
             patch("memoriant_ops_bot.infra.updater._INITIAL_DELAY_S", 0),
             patch("memoriant_ops_bot.infra.updater._CHECK_INTERVAL_S", 0.01),
         ):

@@ -25,7 +25,9 @@ def test_create_cli_returns_codex() -> None:
 
 def test_create_cli_returns_gemini() -> None:
     with (
-        patch("memoriant_ops_bot.cli.gemini_provider.find_gemini_cli", return_value="/usr/bin/gemini"),
+        patch(
+            "memoriant_ops_bot.cli.gemini_provider.find_gemini_cli", return_value="/usr/bin/gemini"
+        ),
         patch("memoriant_ops_bot.cli.gemini_provider.find_gemini_cli_js", return_value=None),
     ):
         cli = create_cli(CLIConfig(provider="gemini"))

@@ -10,9 +10,7 @@ from memoriant_ops_bot.workspace.paths import MopsPaths
 
 def _make_paths(tmp_path: Path) -> MopsPaths:
     fw = tmp_path / "fw"
-    return MopsPaths(
-        mops_home=tmp_path / "home", home_defaults=fw / "workspace", framework_root=fw
-    )
+    return MopsPaths(mops_home=tmp_path / "home", home_defaults=fw / "workspace", framework_root=fw)
 
 
 # -- read_file --

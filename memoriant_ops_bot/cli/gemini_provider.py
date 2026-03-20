@@ -19,7 +19,11 @@ from memoriant_ops_bot.cli.base import (
     _feed_stdin_and_close,
     docker_wrap,
 )
-from memoriant_ops_bot.cli.gemini_events import extract_result_text, extract_text, parse_gemini_stream_line
+from memoriant_ops_bot.cli.gemini_events import (
+    extract_result_text,
+    extract_text,
+    parse_gemini_stream_line,
+)
 from memoriant_ops_bot.cli.gemini_utils import (
     create_system_prompt_file,
     find_gemini_cli,

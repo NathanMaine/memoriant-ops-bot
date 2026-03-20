@@ -460,7 +460,8 @@ class TestOnMessage:
         msg = _make_message(text="Hello bot")
 
         with patch(
-            "memoriant_ops_bot.messenger.telegram.app.run_non_streaming_message", new_callable=AsyncMock
+            "memoriant_ops_bot.messenger.telegram.app.run_non_streaming_message",
+            new_callable=AsyncMock,
         ) as mock_run:
             mock_run.return_value = "Non-streamed reply"
             await tg_bot._on_message(msg)
@@ -830,7 +831,8 @@ class TestCallbackQueryHandler:
         cb = _make_callback_query(data="Approve")
 
         with patch(
-            "memoriant_ops_bot.messenger.telegram.app.run_non_streaming_message", new_callable=AsyncMock
+            "memoriant_ops_bot.messenger.telegram.app.run_non_streaming_message",
+            new_callable=AsyncMock,
         ) as mock_run:
             mock_run.return_value = "Non-streamed"
             await tg_bot._on_callback_query(cb)
@@ -996,7 +998,9 @@ class TestHandleCronSelector:
 
 class TestCommandHandlers:
     @patch(
-        "memoriant_ops_bot.messenger.telegram.app.handle_abort", new_callable=AsyncMock, return_value=True
+        "memoriant_ops_bot.messenger.telegram.app.handle_abort",
+        new_callable=AsyncMock,
+        return_value=True,
     )
     async def test_on_stop_calls_handle_abort(self, mock_abort: AsyncMock) -> None:
         tg_bot, _ = _make_tg_bot()
@@ -1033,7 +1037,9 @@ class TestCommandHandlers:
         )
 
     @patch(
-        "memoriant_ops_bot.messenger.telegram.app.handle_abort", new_callable=AsyncMock, return_value=True
+        "memoriant_ops_bot.messenger.telegram.app.handle_abort",
+        new_callable=AsyncMock,
+        return_value=True,
     )
     async def test_on_abort_returns_handled(self, mock_abort: AsyncMock) -> None:
         tg_bot, _ = _make_tg_bot()
@@ -1330,7 +1336,8 @@ class TestForumTopicPropagation:
         cb = _make_callback_query(data="Approve", topic_thread_id=77)
 
         with patch(
-            "memoriant_ops_bot.messenger.telegram.app.run_non_streaming_message", new_callable=AsyncMock
+            "memoriant_ops_bot.messenger.telegram.app.run_non_streaming_message",
+            new_callable=AsyncMock,
         ) as mock_run:
             mock_run.return_value = "Reply"
             await tg_bot._on_callback_query(cb)
@@ -1347,7 +1354,8 @@ class TestForumTopicPropagation:
         msg = _make_message(text="Hello", topic_thread_id=55)
 
         with patch(
-            "memoriant_ops_bot.messenger.telegram.app.run_non_streaming_message", new_callable=AsyncMock
+            "memoriant_ops_bot.messenger.telegram.app.run_non_streaming_message",
+            new_callable=AsyncMock,
         ) as mock_run:
             mock_run.return_value = "Reply"
             await tg_bot._on_message(msg)

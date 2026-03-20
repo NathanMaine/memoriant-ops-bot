@@ -26,7 +26,8 @@ _AUTHED = {
 
 async def test_model_list_returns_keyboard(orch: Orchestrator) -> None:
     with patch(
-        "memoriant_ops_bot.orchestrator.selectors.model_selector.check_all_auth", return_value=_AUTHED
+        "memoriant_ops_bot.orchestrator.selectors.model_selector.check_all_auth",
+        return_value=_AUTHED,
     ):
         result = await cmd_model(orch, SessionKey(chat_id=1), "/model")
     assert result.buttons is not None

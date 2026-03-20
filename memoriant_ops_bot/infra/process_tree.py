@@ -143,8 +143,6 @@ def kill_all_mops_processes() -> int:
     return killed
 
 
-
-
 def _kill_mops_exe_windows(current_pid: int) -> int:
     """Kill processes whose image name is ``mops.exe``."""
     try:

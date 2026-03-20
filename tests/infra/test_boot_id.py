@@ -21,7 +21,9 @@ class TestGetBootIdLinux:
     @patch("memoriant_ops_bot.infra.boot_id.sys")
     def test_missing_proc_file_returns_empty(self, mock_sys: MagicMock) -> None:
         mock_sys.platform = "linux"
-        with patch("memoriant_ops_bot.infra.boot_id._LINUX_BOOT_ID_PATH", Path("/nonexistent/boot_id")):
+        with patch(
+            "memoriant_ops_bot.infra.boot_id._LINUX_BOOT_ID_PATH", Path("/nonexistent/boot_id")
+        ):
             result = get_boot_id()
         assert result == ""
 

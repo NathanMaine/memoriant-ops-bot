@@ -75,7 +75,9 @@ async def test_load_from_disk(tmp_path: Path) -> None:
     }}"""
     )
 
-    with patch("memoriant_ops_bot.cli.codex_cache.discover_codex_models", AsyncMock()) as mock_discover:
+    with patch(
+        "memoriant_ops_bot.cli.codex_cache.discover_codex_models", AsyncMock()
+    ) as mock_discover:
         result = await CodexModelCache.load_or_refresh(cache_path)
 
         assert len(result.models) == 1
@@ -128,7 +130,9 @@ async def test_skip_refresh_if_recent(tmp_path: Path) -> None:
     }}"""
     )
 
-    with patch("memoriant_ops_bot.cli.codex_cache.discover_codex_models", AsyncMock()) as mock_discover:
+    with patch(
+        "memoriant_ops_bot.cli.codex_cache.discover_codex_models", AsyncMock()
+    ) as mock_discover:
         result = await CodexModelCache.load_or_refresh(cache_path)
 
         mock_discover.assert_not_called()

@@ -12,7 +12,11 @@ from memoriant_ops_bot.files.allowed_roots import resolve_allowed_roots
 from memoriant_ops_bot.infra.docker import DockerManager
 from memoriant_ops_bot.workspace.init import inject_runtime_environment
 from memoriant_ops_bot.workspace.paths import MopsPaths, resolve_paths
-from memoriant_ops_bot.workspace.skill_sync import cleanup_mops_links, sync_bundled_skills, sync_skills
+from memoriant_ops_bot.workspace.skill_sync import (
+    cleanup_mops_links,
+    sync_bundled_skills,
+    sync_skills,
+)
 
 if TYPE_CHECKING:
     from memoriant_ops_bot.config import AgentConfig

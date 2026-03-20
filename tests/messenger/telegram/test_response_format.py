@@ -2,7 +2,11 @@
 
 from __future__ import annotations
 
-from memoriant_ops_bot.text.response_format import classify_cli_error, new_session_text, session_error_text
+from memoriant_ops_bot.text.response_format import (
+    classify_cli_error,
+    new_session_text,
+    session_error_text,
+)
 
 
 class TestClassifyCliError:

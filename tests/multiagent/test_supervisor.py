@@ -59,7 +59,9 @@ class TestStartupFailures:
                 new_callable=AsyncMock,
                 return_value=False,
             ),
-            patch("memoriant_ops_bot.multiagent.supervisor.AgentStack.create", new_callable=AsyncMock),
+            patch(
+                "memoriant_ops_bot.multiagent.supervisor.AgentStack.create", new_callable=AsyncMock
+            ),
             pytest.raises(RuntimeError, match="Internal agent API failed to start"),
         ):
             await supervisor.start()

@@ -164,7 +164,10 @@ class AgentSupervisor:
         #    first image build can take several minutes.
         startup_timeout = 120
         if self._main_config.docker.enabled and self._main_config.docker.extras:
-            from memoriant_ops_bot.infra.docker_extras import calculate_build_timeout, resolve_extras
+            from memoriant_ops_bot.infra.docker_extras import (
+                calculate_build_timeout,
+                resolve_extras,
+            )
 
             startup_timeout = max(
                 startup_timeout,

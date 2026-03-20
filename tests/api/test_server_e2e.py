@@ -16,7 +16,9 @@ from unittest.mock import AsyncMock, patch
 
 import pytest
 
-pytest.importorskip("nacl", reason="PyNaCl not installed (optional: pip install memoriant-ops-bot[api])")
+pytest.importorskip(
+    "nacl", reason="PyNaCl not installed (optional: pip install memoriant-ops-bot[api])"
+)
 
 from aiohttp import WSMsgType, web
 from aiohttp.test_utils import TestClient, TestServer

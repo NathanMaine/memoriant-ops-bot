@@ -51,7 +51,9 @@ class TestGetCurrentVersion:
     """Test installed version detection."""
 
     def test_returns_installed_version(self) -> None:
-        with patch("memoriant_ops_bot.infra.version.importlib.metadata.version", return_value="1.5.0"):
+        with patch(
+            "memoriant_ops_bot.infra.version.importlib.metadata.version", return_value="1.5.0"
+        ):
             assert get_current_version() == "1.5.0"
 
     def test_returns_fallback_when_not_installed(self) -> None:

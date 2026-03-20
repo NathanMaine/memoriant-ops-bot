@@ -11,7 +11,10 @@ class TestCreateStreamEditor:
     """Verify factory returns the correct editor type based on append_mode."""
 
     def test_append_mode_returns_stream_editor(self) -> None:
-        from memoriant_ops_bot.messenger.telegram.streaming import StreamEditor, create_stream_editor
+        from memoriant_ops_bot.messenger.telegram.streaming import (
+            StreamEditor,
+            create_stream_editor,
+        )
 
         bot = MagicMock()
         cfg = StreamingConfig(append_mode=True)
@@ -28,7 +31,10 @@ class TestCreateStreamEditor:
         assert isinstance(editor, EditStreamEditor)
 
     def test_thread_id_passed_to_stream_editor(self) -> None:
-        from memoriant_ops_bot.messenger.telegram.streaming import StreamEditor, create_stream_editor
+        from memoriant_ops_bot.messenger.telegram.streaming import (
+            StreamEditor,
+            create_stream_editor,
+        )
 
         bot = MagicMock()
         cfg = StreamingConfig(append_mode=True)

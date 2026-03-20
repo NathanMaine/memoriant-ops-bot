@@ -8,7 +8,11 @@ from dataclasses import dataclass
 from typing import TYPE_CHECKING
 
 from memoriant_ops_bot.cli.auth import AuthStatus, check_all_auth
-from memoriant_ops_bot.config import CLAUDE_MODELS_ORDERED, get_gemini_models, update_config_file_async
+from memoriant_ops_bot.config import (
+    CLAUDE_MODELS_ORDERED,
+    get_gemini_models,
+    update_config_file_async,
+)
 from memoriant_ops_bot.i18n import t
 from memoriant_ops_bot.multiagent.registry import update_agent_fields
 from memoriant_ops_bot.orchestrator.selectors.models import Button, ButtonGrid, SelectorResponse

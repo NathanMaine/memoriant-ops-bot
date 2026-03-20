@@ -9,9 +9,7 @@ from memoriant_ops_bot.workspace.paths import MopsPaths
 
 def _paths(tmp_path: Path) -> MopsPaths:
     fw = tmp_path / "fw"
-    return MopsPaths(
-        mops_home=tmp_path / "home", home_defaults=fw / "workspace", framework_root=fw
-    )
+    return MopsPaths(mops_home=tmp_path / "home", home_defaults=fw / "workspace", framework_root=fw)
 
 
 def test_cron_tasks_dir(tmp_path: Path) -> None:

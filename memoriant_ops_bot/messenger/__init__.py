@@ -8,7 +8,10 @@ from memoriant_ops_bot.messenger.commands import (
     classify_command,
 )
 from memoriant_ops_bot.messenger.multi import MultiBotAdapter
-from memoriant_ops_bot.messenger.notifications import CompositeNotificationService, NotificationService
+from memoriant_ops_bot.messenger.notifications import (
+    CompositeNotificationService,
+    NotificationService,
+)
 from memoriant_ops_bot.messenger.protocol import BotProtocol
 from memoriant_ops_bot.messenger.registry import create_bot
 from memoriant_ops_bot.messenger.send_opts import BaseSendOpts

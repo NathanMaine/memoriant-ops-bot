@@ -71,7 +71,9 @@ class TestRateLimiter:
         assert rl.check() is False
 
         # Simulate 61 seconds passing
-        with patch("memoriant_ops_bot.webhook.auth.time.monotonic", return_value=time.monotonic() + 61):
+        with patch(
+            "memoriant_ops_bot.webhook.auth.time.monotonic", return_value=time.monotonic() + 61
+        ):
             assert rl.check() is True
 
     def test_reset_clears_history(self) -> None:

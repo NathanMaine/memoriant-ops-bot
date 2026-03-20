@@ -84,7 +84,9 @@ class TestCronBroadcast:
             metadata={"title": "Backup"},
         )
 
-        with patch("memoriant_ops_bot.messenger.telegram.transport.send_rich", new_callable=AsyncMock):
+        with patch(
+            "memoriant_ops_bot.messenger.telegram.transport.send_rich", new_callable=AsyncMock
+        ):
             await transport.deliver_broadcast(env)
 
         bot.broadcast.assert_awaited_once()
@@ -458,7 +460,9 @@ class TestDispatchFallback:
         # Use an origin that's not in _HANDLERS for unicast
         env = _env(origin=Origin.USER)  # USER has no delivery handler
 
-        with patch("memoriant_ops_bot.messenger.telegram.transport.send_rich", new_callable=AsyncMock):
+        with patch(
+            "memoriant_ops_bot.messenger.telegram.transport.send_rich", new_callable=AsyncMock
+        ):
             await transport.deliver(env)
 
         assert "No handler for origin=user" in caplog.text

@@ -42,7 +42,10 @@ async def test_orchestrator_starts_cache_observer(mock_codex_cache: CodexModelCa
     mock_config = AgentConfig()
 
     with (
-        patch("memoriant_ops_bot.orchestrator.observers.CodexCacheObserver", return_value=mock_observer),
+        patch(
+            "memoriant_ops_bot.orchestrator.observers.CodexCacheObserver",
+            return_value=mock_observer,
+        ),
         patch("memoriant_ops_bot.orchestrator.lifecycle.resolve_paths"),
         patch("memoriant_ops_bot.orchestrator.lifecycle.inject_runtime_environment"),
         patch("memoriant_ops_bot.cli.auth.check_all_auth", return_value={}),
@@ -81,7 +84,8 @@ async def test_orchestrator_passes_cache_to_observers(
 
     with (
         patch(
-            "memoriant_ops_bot.orchestrator.observers.CodexCacheObserver", return_value=mock_cache_observer
+            "memoriant_ops_bot.orchestrator.observers.CodexCacheObserver",
+            return_value=mock_cache_observer,
         ),
         patch("memoriant_ops_bot.orchestrator.observers.CronObserver", mock_cron_class),
         patch("memoriant_ops_bot.orchestrator.observers.WebhookObserver", mock_webhook_class),
@@ -122,7 +126,10 @@ async def test_orchestrator_stops_cache_observer(mock_codex_cache: CodexModelCac
     mock_config = AgentConfig()
 
     with (
-        patch("memoriant_ops_bot.orchestrator.observers.CodexCacheObserver", return_value=mock_observer),
+        patch(
+            "memoriant_ops_bot.orchestrator.observers.CodexCacheObserver",
+            return_value=mock_observer,
+        ),
         patch("memoriant_ops_bot.orchestrator.lifecycle.resolve_paths"),
         patch("memoriant_ops_bot.orchestrator.lifecycle.inject_runtime_environment"),
         patch("memoriant_ops_bot.cli.auth.check_all_auth", return_value={}),

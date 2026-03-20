@@ -15,7 +15,11 @@ from memoriant_ops_bot.cli.base import (
     CLIConfig,
     docker_wrap,
 )
-from memoriant_ops_bot.cli.executor import SubprocessSpec, run_oneshot_subprocess, run_streaming_subprocess
+from memoriant_ops_bot.cli.executor import (
+    SubprocessSpec,
+    run_oneshot_subprocess,
+    run_streaming_subprocess,
+)
 from memoriant_ops_bot.cli.stream_events import (
     StreamEvent,
     parse_stream_line,

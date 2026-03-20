@@ -27,7 +27,9 @@ from memoriant_ops_bot.cli.stream_events import (
 
 
 def _make_cli(monkeypatch: pytest.MonkeyPatch, **overrides: Any) -> GeminiCLI:
-    monkeypatch.setattr("memoriant_ops_bot.cli.gemini_provider.find_gemini_cli", lambda: "/usr/bin/gemini")
+    monkeypatch.setattr(
+        "memoriant_ops_bot.cli.gemini_provider.find_gemini_cli", lambda: "/usr/bin/gemini"
+    )
     monkeypatch.setattr("memoriant_ops_bot.cli.gemini_provider.find_gemini_cli_js", lambda: None)
     return GeminiCLI(
         CLIConfig(
@@ -272,7 +274,8 @@ class TestSend:
         proc = _make_process_mock(stdout=response_data.encode(), returncode=0)
 
         with patch(
-            "memoriant_ops_bot.cli.gemini_provider.asyncio.create_subprocess_exec", return_value=proc
+            "memoriant_ops_bot.cli.gemini_provider.asyncio.create_subprocess_exec",
+            return_value=proc,
         ):
             result = await cli.send("Hi")
 
@@ -287,7 +290,8 @@ class TestSend:
         proc.communicate.side_effect = [TimeoutError(), (b"", b"")]
 
         with patch(
-            "memoriant_ops_bot.cli.gemini_provider.asyncio.create_subprocess_exec", return_value=proc
+            "memoriant_ops_bot.cli.gemini_provider.asyncio.create_subprocess_exec",
+            return_value=proc,
         ):
             result = await cli.send("Hi", timeout_seconds=0.01)
 
@@ -301,7 +305,8 @@ class TestSend:
         proc = _make_process_mock(stdout=response_data.encode(), returncode=0)
 
         with patch(
-            "memoriant_ops_bot.cli.gemini_provider.asyncio.create_subprocess_exec", return_value=proc
+            "memoriant_ops_bot.cli.gemini_provider.asyncio.create_subprocess_exec",
+            return_value=proc,
         ):
             result = await cli.send("test")
 
@@ -321,7 +326,8 @@ class TestSend:
         timeout_controller.run_with_timeout = AsyncMock(side_effect=_run_with_timeout)
 
         with patch(
-            "memoriant_ops_bot.cli.gemini_provider.asyncio.create_subprocess_exec", return_value=proc
+            "memoriant_ops_bot.cli.gemini_provider.asyncio.create_subprocess_exec",
+            return_value=proc,
         ):
             result = await cli.send("Hi", timeout_controller=timeout_controller)
 
@@ -346,7 +352,8 @@ class TestSendStreaming:
         proc = _make_streaming_process(lines)
 
         with patch(
-            "memoriant_ops_bot.cli.gemini_provider.asyncio.create_subprocess_exec", return_value=proc
+            "memoriant_ops_bot.cli.gemini_provider.asyncio.create_subprocess_exec",
+            return_value=proc,
         ):
             events = [event async for event in cli.send_streaming("Hi")]
 
@@ -370,7 +377,8 @@ class TestSendStreaming:
         await reg.kill_all(99)
 
         with patch(
-            "memoriant_ops_bot.cli.gemini_provider.asyncio.create_subprocess_exec", return_value=proc
+            "memoriant_ops_bot.cli.gemini_provider.asyncio.create_subprocess_exec",
+            return_value=proc,
         ):
             events = [event async for event in cli.send_streaming("Hi")]
 
@@ -385,7 +393,8 @@ class TestSendStreaming:
         proc = _make_streaming_process(lines, stderr=b"boom", returncode=1)
 
         with patch(
-            "memoriant_ops_bot.cli.gemini_provider.asyncio.create_subprocess_exec", return_value=proc
+            "memoriant_ops_bot.cli.gemini_provider.asyncio.create_subprocess_exec",
+            return_value=proc,
         ):
             events = [event async for event in cli.send_streaming("Hi")]
 
@@ -408,7 +417,8 @@ class TestSendStreaming:
         timeout_controller.try_extend = MagicMock(return_value=False)
 
         with patch(
-            "memoriant_ops_bot.cli.gemini_provider.asyncio.create_subprocess_exec", return_value=proc
+            "memoriant_ops_bot.cli.gemini_provider.asyncio.create_subprocess_exec",
+            return_value=proc,
         ):
             events = [
                 event
