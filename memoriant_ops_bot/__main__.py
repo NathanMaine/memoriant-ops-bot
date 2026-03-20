@@ -176,7 +176,7 @@ async def run_bot(config: AgentConfig) -> int:
 
     Returns the exit code from the bot (``0`` = clean, ``42`` = restart requested).
     """
-    paths = resolve_paths(mops_home=config.ductor_home)
+    paths = resolve_paths(mops_home=config.mops_home)
     _validate_transports(config)
 
     from memoriant_ops_bot.infra.pidlock import acquire_lock, release_lock

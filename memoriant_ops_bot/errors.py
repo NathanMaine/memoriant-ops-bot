@@ -5,10 +5,6 @@ class MopsError(Exception):
     """Base for all mops exceptions."""
 
 
-# Backward-compat alias
-DuctorError = MopsError
-
-
 class CLIError(MopsError):
     """CLI execution failed."""
 

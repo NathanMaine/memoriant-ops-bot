@@ -46,7 +46,7 @@ class TestBuildWelcomeText:
         }
         text = build_welcome_text("Alice", auth_results, _config(model="sonnet"))
 
-        assert "Welcome to Memoriant Ops, Alice!" in text
+        assert "Welcome to Memoriant Ops Bot, Alice!" in text
         assert "Claude Code + Codex authenticated" in text
         assert "Sonnet" in text
 
@@ -114,21 +114,21 @@ class TestBuildWelcomeText:
         from memoriant_ops_bot.messenger.telegram.welcome import build_welcome_text
 
         text = build_welcome_text("Zara", {}, _config())
-        assert "Welcome to Memoriant Ops, Zara!" in text
+        assert "Welcome to Memoriant Ops Bot, Zara!" in text
 
     def test_user_name_empty(self) -> None:
         from memoriant_ops_bot.messenger.telegram.welcome import build_welcome_text
 
         text = build_welcome_text("", {}, _config())
-        assert "Welcome to Memoriant Ops!" in text
-        assert "Welcome to Memoriant Ops, " not in text
+        assert "Welcome to Memoriant Ops Bot!" in text
+        assert "Welcome to Memoriant Ops Bot, " not in text
 
     def test_static_content_present(self) -> None:
         from memoriant_ops_bot.messenger.telegram.welcome import build_welcome_text
 
         text = build_welcome_text("X", {"claude": _auth("claude")}, _config())
 
-        assert "Deploy from your pocket" in text
+        assert "Your AI operations command center" in text
         assert "Claude Code" in text
         assert "/model" in text
         assert "/help" in text
@@ -296,7 +296,7 @@ class TestResolveWelcomeCallback:
     @pytest.mark.parametrize(
         ("key", "expected_substring"),
         [
-            ("w:1", "Memoriant Ops"),
+            ("w:1", "memoriant ops"),
             ("w:2", "system"),
             ("w:3", "introduce"),
         ],

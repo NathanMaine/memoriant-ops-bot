@@ -38,8 +38,6 @@ def find_mops_binary() -> str | None:
     return shutil.which("mops")
 
 
-# Backward-compat alias
-find_ductor_binary = find_mops_binary
 
 
 # ---------------------------------------------------------------------------

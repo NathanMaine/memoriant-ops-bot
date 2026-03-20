@@ -45,7 +45,7 @@ class AgentStack:
         """
         import asyncio
 
-        paths = resolve_paths(mops_home=config.ductor_home)
+        paths = resolve_paths(mops_home=config.mops_home)
         await asyncio.to_thread(init_workspace, paths)
 
         from memoriant_ops_bot.messenger.registry import create_bot

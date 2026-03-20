@@ -70,7 +70,7 @@ class AgentSupervisor:
 
     def __init__(self, main_config: AgentConfig) -> None:
         self._main_config = main_config
-        self._main_paths = resolve_paths(mops_home=main_config.ductor_home)
+        self._main_paths = resolve_paths(mops_home=main_config.mops_home)
         self._agents_path = self._main_paths.mops_home / "agents.json"
         self._registry = AgentRegistry(self._agents_path)
         self._stacks: dict[str, AgentStack] = {}

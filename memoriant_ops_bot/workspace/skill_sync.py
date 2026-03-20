@@ -428,7 +428,3 @@ async def watch_skill_sync(
             await asyncio.to_thread(sync_skills, paths, docker_active=docker_active)
         except Exception:
             logger.exception("Skill sync failed")
-
-
-# Backward-compat alias
-cleanup_ductor_links = cleanup_mops_links

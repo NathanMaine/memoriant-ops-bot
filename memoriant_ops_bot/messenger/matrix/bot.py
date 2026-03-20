@@ -102,7 +102,7 @@ class MatrixBot:
         self._config = config
         self._agent_name = agent_name
         mx = config.matrix
-        self._store_path = Path(config.ductor_home).expanduser() / mx.store_path
+        self._store_path = Path(config.mops_home).expanduser() / mx.store_path
         self._store_path.mkdir(parents=True, exist_ok=True)
 
         self._client = AsyncClient(mx.homeserver, mx.user_id)
@@ -470,7 +470,7 @@ class MatrixBot:
         """Request bot restart via restart marker."""
         from memoriant_ops_bot.infra.restart import EXIT_RESTART, write_restart_marker
 
-        marker = _expand_marker(self._config.ductor_home)
+        marker = _expand_marker(self._config.mops_home)
         write_restart_marker(marker_path=marker)
         await self._send_rich(
             room_id,
@@ -965,7 +965,7 @@ class MatrixBot:
                 current_version=current,
             )
             if changed:
-                marker = _expand_marker(self._config.ductor_home)
+                marker = _expand_marker(self._config.mops_home)
                 write_restart_marker(marker_path=marker)
                 await self._send_rich(
                     room_id, t("startup.matrix_upgraded_restarting", old=current, new=installed)
@@ -1150,7 +1150,7 @@ class MatrixBot:
         """Watch for restart marker file (created by /restart command)."""
         from memoriant_ops_bot.infra.restart import EXIT_RESTART
 
-        marker = _expand_marker(self._config.ductor_home)
+        marker = _expand_marker(self._config.mops_home)
         while True:
             await asyncio.sleep(2)
             if marker.exists():

@@ -38,7 +38,7 @@ async def create_orchestrator(
     """
     from memoriant_ops_bot.orchestrator.core import Orchestrator
 
-    paths = resolve_paths(mops_home=config.ductor_home)
+    paths = resolve_paths(mops_home=config.mops_home)
 
     # Only set the process-wide env var for the main agent to avoid
     # race conditions in multi-agent mode (sub-agents use per-subprocess env).

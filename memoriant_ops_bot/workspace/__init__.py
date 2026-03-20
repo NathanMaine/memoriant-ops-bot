@@ -14,21 +14,15 @@ from memoriant_ops_bot.workspace.init import watch_rule_files as watch_rule_file
 from memoriant_ops_bot.workspace.loader import read_file as read_file
 from memoriant_ops_bot.workspace.loader import read_mainmemory as read_mainmemory
 from memoriant_ops_bot.workspace.paths import MopsPaths as MopsPaths
-from memoriant_ops_bot.workspace.paths import DuctorPaths as DuctorPaths  # backward compat
 from memoriant_ops_bot.workspace.paths import resolve_paths as resolve_paths
 from memoriant_ops_bot.workspace.skill_sync import cleanup_mops_links as cleanup_mops_links
 from memoriant_ops_bot.workspace.skill_sync import sync_bundled_skills as sync_bundled_skills
 from memoriant_ops_bot.workspace.skill_sync import sync_skills as sync_skills
 from memoriant_ops_bot.workspace.skill_sync import watch_skill_sync as watch_skill_sync
 
-# Backward compat alias
-cleanup_ductor_links = cleanup_mops_links
-
 __all__ = [
     "MopsPaths",
-    "DuctorPaths",
     "cleanup_mops_links",
-    "cleanup_ductor_links",
     "create_cron_task",
     "delete_cron_task",
     "ensure_task_rule_files",

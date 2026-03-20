@@ -20,7 +20,7 @@ def base_config() -> AgentConfig:
     return AgentConfig(
         provider="claude",
         model="sonnet",
-        ductor_home="~/mops",
+        mops_home="~/mops",
         permission_mode="normal",
     )
 

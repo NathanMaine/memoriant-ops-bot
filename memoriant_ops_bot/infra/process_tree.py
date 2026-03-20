@@ -143,8 +143,6 @@ def kill_all_mops_processes() -> int:
     return killed
 
 
-# Backward-compat alias
-kill_all_ductor_processes = kill_all_mops_processes
 
 
 def _kill_mops_exe_windows(current_pid: int) -> int:

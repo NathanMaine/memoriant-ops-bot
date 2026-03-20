@@ -37,11 +37,6 @@ class MopsPaths:
     home_defaults: Path = field(default_factory=_default_home_defaults)
     framework_root: Path = field(default_factory=_default_framework_root)
 
-    # Backward-compat alias
-    @property
-    def ductor_home(self) -> Path:
-        return self.mops_home
-
     # -- User data paths (inside mops_home) --
 
     @property
@@ -167,14 +162,9 @@ class MopsPaths:
         return _PKG_DIR / "_Dockerfile.sandbox"
 
 
-# Backward-compat alias
-DuctorPaths = MopsPaths
-
-
 def resolve_paths(
     mops_home: str | Path | None = None,
     *,
-    ductor_home: str | Path | None = None,
     framework_root: str | Path | None = None,
     home_defaults: str | Path | None = None,
 ) -> MopsPaths:
@@ -182,12 +172,10 @@ def resolve_paths(
 
     Args:
         mops_home: User data directory. Falls back to ``$MOPS_HOME`` or ``~/.mops``.
-        ductor_home: Backward-compat alias for mops_home.
         framework_root: Repository root. Falls back to ``$MOPS_FRAMEWORK_ROOT``.
         home_defaults: Template directory. Falls back to ``memoriant_ops_bot/_home_defaults/``.
     """
-    # Support both old and new parameter name
-    effective_home = mops_home or ductor_home
+    effective_home = mops_home
     if effective_home is not None:
         home = Path(effective_home).expanduser().resolve()
     else:

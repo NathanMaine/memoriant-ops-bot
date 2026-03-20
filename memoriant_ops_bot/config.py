@@ -279,7 +279,7 @@ class AgentConfig(BaseModel):
     log_level: str = "INFO"
     provider: str = "claude"
     model: str = "opus"
-    ductor_home: str = "~/.mops"  # kept for config-file backward compat
+    mops_home: str = "~/.mops"
     idle_timeout_minutes: int = 1440
     session_age_warning_hours: int = 12
     daily_reset_hour: int = 4

@@ -5,7 +5,7 @@
     "provider": "claude",
     "model": "sonnet",
     "language": "en",
-    "ductor_home": "~/.mops",
+    "mops_home": "~/.mops",
     "user_timezone": "Europe/Berlin",
     "update_check": true,
 
