@@ -12,12 +12,14 @@ from memoriant_ops_bot.cli.gemini_provider import GeminiCLI
 
 
 def test_create_cli_returns_claude_by_default() -> None:
-    cli = create_cli(CLIConfig(provider="claude"))
+    with patch("memoriant_ops_bot.cli.claude_provider.which", return_value="/usr/bin/claude"):
+        cli = create_cli(CLIConfig(provider="claude"))
     assert isinstance(cli, ClaudeCodeCLI)
 
 
 def test_create_cli_returns_codex() -> None:
-    cli = create_cli(CLIConfig(provider="codex"))
+    with patch("memoriant_ops_bot.cli.codex_provider.which", return_value="/usr/bin/codex"):
+        cli = create_cli(CLIConfig(provider="codex"))
     assert isinstance(cli, CodexCLI)
 
 
@@ -31,5 +33,6 @@ def test_create_cli_returns_gemini() -> None:
 
 
 def test_create_cli_unknown_provider_returns_claude() -> None:
-    cli = create_cli(CLIConfig(provider="unknown"))
+    with patch("memoriant_ops_bot.cli.claude_provider.which", return_value="/usr/bin/claude"):
+        cli = create_cli(CLIConfig(provider="unknown"))
     assert isinstance(cli, ClaudeCodeCLI)
