@@ -304,6 +304,7 @@ MOPS execute les CLIs officiels comme sous-processus. Rien de plus. Votre abonne
 | [FAQ](docs/FAQ.md) | Questions fréquemment posées |
 | [Dépannage](docs/troubleshooting.md) | Étapes de diagnostic par symptôme |
 | [Guide des plugins](docs/plugin-guide.md) | Ajouter des transports & fournisseurs |
+| [Configuration Telegram](docs/telegram-setup.md) | Token bot + configuration groupe |
 | [Configuration Matrix](docs/matrix-setup.md) | Transport Matrix |
 | [Automatisation](docs/automation.md) | Cron, webhooks, heartbeat |
 | [Gestion des services](docs/modules/service_management.md) | systemd / launchd / Task Scheduler |

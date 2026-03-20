@@ -62,6 +62,7 @@ Runtime behavior notes:
 - [FAQ](FAQ.md)
 - [Troubleshooting](troubleshooting.md)
 - [Plugin Guide](plugin-guide.md)
+- [Telegram Setup](telegram-setup.md)
 - Module docs:
   - [setup_wizard](modules/setup_wizard.md)
   - [service_management](modules/service_management.md)

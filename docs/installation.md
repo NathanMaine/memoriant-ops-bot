@@ -9,7 +9,7 @@
    - Codex CLI: `npm install -g @openai/codex && codex auth`
    - Gemini CLI: `npm install -g @google/gemini-cli` and authenticate in `gemini`
 4. One of these messaging transports:
-   - **Telegram**: Bot token from [@BotFather](https://t.me/BotFather) + user ID from [@userinfobot](https://t.me/userinfobot)
+   - **Telegram**: Bot token from [@BotFather](https://t.me/BotFather) + user ID from [@userinfobot](https://t.me/userinfobot) — see [Telegram Setup Guide](telegram-setup.md) for detailed steps
    - **Matrix**: install Matrix support first (`mops install matrix` or `pip install \"memoriant-ops-bot[matrix]\"`), then provide homeserver URL, user ID, and password/access token
 5. Docker optional (recommended for sandboxing)
 

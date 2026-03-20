@@ -115,6 +115,7 @@ Start here:
 - [Plugin Guide](https://github.com/NathanMaine/memoriant-ops-bot/blob/main/docs/plugin-guide.md): adding new transports and CLI providers
 - [FAQ](https://github.com/NathanMaine/memoriant-ops-bot/blob/main/docs/FAQ.md): common questions and answers
 - [Troubleshooting](https://github.com/NathanMaine/memoriant-ops-bot/blob/main/docs/troubleshooting.md): diagnostic steps by symptom
+- [Telegram Setup](https://github.com/NathanMaine/memoriant-ops-bot/blob/main/docs/telegram-setup.md): bot token creation, user ID, group setup, topics
 
 Module-level references:
 

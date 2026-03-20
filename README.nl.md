@@ -304,6 +304,7 @@ MOPS draait officiele CLIs als subprocessen. Meer niet. Jouw abonnement, jouw ma
 | [FAQ](docs/FAQ.md) | Veelgestelde vragen |
 | [Probleemoplossing](docs/troubleshooting.md) | Diagnosestappen per symptoom |
 | [Plugin-gids](docs/plugin-guide.md) | Transports & providers toevoegen |
+| [Telegram-instelling](docs/telegram-setup.md) | Bot-token + groepsinstelling |
 | [Matrix-setup](docs/matrix-setup.md) | Matrix-transport |
 | [Automatisering](docs/automation.md) | Cron, webhooks, heartbeat |
 | [Dienstbeheer](docs/modules/service_management.md) | systemd / launchd / Task Scheduler |

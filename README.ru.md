@@ -304,6 +304,7 @@ MOPS zapuskaet oficialnye CLI kak subprocessy. Ni bolshe, ni menshe. Vasha podpi
 | [FAQ](docs/FAQ.md) | Chasto zadavaemye voprosy |
 | [Ustranenie nepoladok](docs/troubleshooting.md) | Diagnostika po simptomu |
 | [Rukovodstvo po plaginam](docs/plugin-guide.md) | Dobavlenie transportov i provajderov |
+| [Nastrojka Telegram](docs/telegram-setup.md) | Token bota + nastrojka grupp |
 | [Nastrojka Matrix](docs/matrix-setup.md) | Transport Matrix |
 | [Avtomatizacija](docs/automation.md) | Cron, webhooks, heartbeat |
 | [Upravlenie servisami](docs/modules/service_management.md) | systemd / launchd / Task Scheduler |
