@@ -14,6 +14,7 @@
   <a href="#snelle-start">Snelle Start</a> &middot;
   <a href="#hoe-het-werkt">Hoe het werkt</a> &middot;
   <a href="#functies">Functies</a> &middot;
+  <a href="docs/use-cases.md">Toepassingen</a> &middot;
   <a href="docs/installation.md">Installatiegids</a> &middot;
   <a href="docs/architecture.md">Architectuur</a>
 </p>
@@ -297,6 +298,10 @@ MOPS draait officiele CLIs als subprocessen. Meer niet. Jouw abonnement, jouw ma
 | [Systeemoverzicht](docs/system_overview.md) | End-to-end runtime |
 | [Architectuur](docs/architecture.md) | Routing, streaming, callbacks |
 | [Configuratie](docs/config.md) | Volledige configuratiereferentie |
+| [Toepassingen](docs/use-cases.md) | 10 praktijkvoorbeelden met commando's |
+| [FAQ](docs/FAQ.md) | Veelgestelde vragen |
+| [Probleemoplossing](docs/troubleshooting.md) | Diagnosestappen per symptoom |
+| [Plugin-gids](docs/plugin-guide.md) | Transports & providers toevoegen |
 | [Matrix-setup](docs/matrix-setup.md) | Matrix-transport |
 | [Automatisering](docs/automation.md) | Cron, webhooks, heartbeat |
 | [Dienstbeheer](docs/modules/service_management.md) | systemd / launchd / Task Scheduler |
@@ -304,6 +309,8 @@ MOPS draait officiele CLIs als subprocessen. Meer niet. Jouw abonnement, jouw ma
 ---
 
 ## Bijdragen
+
+Zie [CONTRIBUTING.md](CONTRIBUTING.md) voor setup, kwaliteitseisen en bijdragerichtlijnen.
 
 ```bash
 git clone https://github.com/NathanMaine/memoriant-ops-bot.git
@@ -314,6 +321,8 @@ pytest && ruff format . && ruff check . && mypy memoriant_ops_bot
 ```
 
 ---
+
+[Beveiligingsbeleid](SECURITY.md) · [Wijzigingslogboek](CHANGELOG.md)
 
 <p align="center">
   <strong>MIT-licentie</strong><br>

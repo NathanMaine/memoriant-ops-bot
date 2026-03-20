@@ -14,6 +14,7 @@
   <a href="#quick-start">Quick Start</a> &middot;
   <a href="#how-it-works">How It Works</a> &middot;
   <a href="#features">Features</a> &middot;
+  <a href="docs/use-cases.md">Use Cases</a> &middot;
   <a href="docs/installation.md">Install Guide</a> &middot;
   <a href="docs/architecture.md">Architecture</a>
 </p>
@@ -297,6 +298,10 @@ MOPS runs official CLIs as subprocesses. Nothing more. Your subscription, your m
 | [System Overview](docs/system_overview.md) | End-to-end runtime |
 | [Architecture](docs/architecture.md) | Routing, streaming, callbacks |
 | [Configuration](docs/config.md) | Full config reference |
+| [Use Cases & Workflows](docs/use-cases.md) | 10 real-world patterns with commands |
+| [FAQ](docs/FAQ.md) | Common questions answered |
+| [Troubleshooting](docs/troubleshooting.md) | Diagnostic steps by symptom |
+| [Plugin Guide](docs/plugin-guide.md) | Adding transports & providers |
 | [Matrix Setup](docs/matrix-setup.md) | Matrix transport |
 | [Automation](docs/automation.md) | Cron, webhooks, heartbeat |
 | [Service Management](docs/modules/service_management.md) | systemd / launchd / Task Scheduler |
@@ -304,6 +309,8 @@ MOPS runs official CLIs as subprocesses. Nothing more. Your subscription, your m
 ---
 
 ## Contributing
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) for setup, quality gates, and contribution guidelines.
 
 ```bash
 git clone https://github.com/NathanMaine/memoriant-ops-bot.git
@@ -314,6 +321,8 @@ pytest && ruff format . && ruff check . && mypy memoriant_ops_bot
 ```
 
 ---
+
+[Security Policy](SECURITY.md) · [Changelog](CHANGELOG.md)
 
 <p align="center">
   <strong>MIT License</strong><br>

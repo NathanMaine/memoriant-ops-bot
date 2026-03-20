@@ -58,6 +58,10 @@ Runtime behavior notes:
 - [Automation Quickstart](automation.md)
 - [Developer Quickstart](developer_quickstart.md)
 - [Configuration](config.md)
+- [Use Cases & Workflows](use-cases.md)
+- [FAQ](FAQ.md)
+- [Troubleshooting](troubleshooting.md)
+- [Plugin Guide](plugin-guide.md)
 - Module docs:
   - [setup_wizard](modules/setup_wizard.md)
   - [service_management](modules/service_management.md)

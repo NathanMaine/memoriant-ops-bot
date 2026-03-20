@@ -14,6 +14,7 @@
   <a href="#inicio-rapido">Inicio rapido</a> &middot;
   <a href="#como-funciona">Como funciona</a> &middot;
   <a href="#caracteristicas">Caracteristicas</a> &middot;
+  <a href="docs/use-cases.md">Casos de uso</a> &middot;
   <a href="docs/installation.md">Guia de instalacion</a> &middot;
   <a href="docs/architecture.md">Arquitectura</a>
 </p>
@@ -297,6 +298,10 @@ MOPS ejecuta CLIs oficiales como subprocesos. Nada mas. Tu suscripcion, tu maqui
 | [Vision general del sistema](docs/system_overview.md) | Runtime de extremo a extremo |
 | [Arquitectura](docs/architecture.md) | Enrutamiento, streaming, callbacks |
 | [Configuracion](docs/config.md) | Referencia completa de configuracion |
+| [Casos de uso](docs/use-cases.md) | 10 ejemplos prácticos con comandos |
+| [FAQ](docs/FAQ.md) | Preguntas frecuentes |
+| [Solución de problemas](docs/troubleshooting.md) | Pasos de diagnóstico por síntoma |
+| [Guía de plugins](docs/plugin-guide.md) | Agregar transportes y proveedores |
 | [Configuracion de Matrix](docs/matrix-setup.md) | Transporte Matrix |
 | [Automatizacion](docs/automation.md) | Cron, webhooks, heartbeat |
 | [Gestion de servicios](docs/modules/service_management.md) | systemd / launchd / Task Scheduler |
@@ -304,6 +309,8 @@ MOPS ejecuta CLIs oficiales como subprocesos. Nada mas. Tu suscripcion, tu maqui
 ---
 
 ## Contribuir
+
+Ver [CONTRIBUTING.md](CONTRIBUTING.md) para configuración, requisitos de calidad y directrices de contribución.
 
 ```bash
 git clone https://github.com/NathanMaine/memoriant-ops-bot.git
@@ -314,6 +321,8 @@ pytest && ruff format . && ruff check . && mypy memoriant_ops_bot
 ```
 
 ---
+
+[Política de seguridad](SECURITY.md) · [Registro de cambios](CHANGELOG.md)
 
 <p align="center">
   <strong>Licencia MIT</strong><br>

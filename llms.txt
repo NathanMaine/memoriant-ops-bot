@@ -111,6 +111,10 @@ Start here:
 - [Configuration](https://github.com/NathanMaine/memoriant-ops-bot/blob/main/docs/config.md): full config schema, merge behavior, timeout matrix
 - [Service Management](https://github.com/NathanMaine/memoriant-ops-bot/blob/main/docs/modules/service_management.md): systemd, launchd, Task Scheduler behavior
 - [Matrix Setup](https://github.com/NathanMaine/memoriant-ops-bot/blob/main/docs/matrix-setup.md): Matrix install/config/runtime caveats
+- [Use Cases](https://github.com/NathanMaine/memoriant-ops-bot/blob/main/docs/use-cases.md): 10 real-world workflow patterns with commands
+- [Plugin Guide](https://github.com/NathanMaine/memoriant-ops-bot/blob/main/docs/plugin-guide.md): adding new transports and CLI providers
+- [FAQ](https://github.com/NathanMaine/memoriant-ops-bot/blob/main/docs/FAQ.md): common questions and answers
+- [Troubleshooting](https://github.com/NathanMaine/memoriant-ops-bot/blob/main/docs/troubleshooting.md): diagnostic steps by symptom
 
 Module-level references:
 
@@ -135,4 +139,7 @@ Project root docs:
 - [Docs index](https://github.com/NathanMaine/memoriant-ops-bot/blob/main/docs/README.md)
 - [Installation](https://github.com/NathanMaine/memoriant-ops-bot/blob/main/docs/installation.md)
 - [Automation quickstart](https://github.com/NathanMaine/memoriant-ops-bot/blob/main/docs/automation.md)
+- [CONTRIBUTING](https://github.com/NathanMaine/memoriant-ops-bot/blob/main/CONTRIBUTING.md)
+- [SECURITY](https://github.com/NathanMaine/memoriant-ops-bot/blob/main/SECURITY.md)
+- [CHANGELOG](https://github.com/NathanMaine/memoriant-ops-bot/blob/main/CHANGELOG.md)
 - [pyproject.toml](https://github.com/NathanMaine/memoriant-ops-bot/blob/main/pyproject.toml)

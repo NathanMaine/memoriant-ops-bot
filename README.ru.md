@@ -14,6 +14,7 @@
   <a href="#bystryj-start">Bystryj start</a> &middot;
   <a href="#kak-eto-rabotaet">Kak eto rabotaet</a> &middot;
   <a href="#vozmozhnosti">Vozmozhnosti</a> &middot;
+  <a href="docs/use-cases.md">Primery ispolzovanija</a> &middot;
   <a href="docs/installation.md">Rukovodstvo po ustanovke</a> &middot;
   <a href="docs/architecture.md">Arhitektura</a>
 </p>
@@ -297,6 +298,10 @@ MOPS zapuskaet oficialnye CLI kak subprocessy. Ni bolshe, ni menshe. Vasha podpi
 | [Obzor sistemy](docs/system_overview.md) | Runtime ot nachala do konca |
 | [Arhitektura](docs/architecture.md) | Marshrutizacija, streaming, callbacki |
 | [Konfiguracija](docs/config.md) | Polnaja spravka po konfigurацii |
+| [Primery ispolzovanija](docs/use-cases.md) | 10 prakticheskikh scenariev s komandami |
+| [FAQ](docs/FAQ.md) | Chasto zadavaemye voprosy |
+| [Ustranenie nepoladok](docs/troubleshooting.md) | Diagnostika po simptomu |
+| [Rukovodstvo po plaginam](docs/plugin-guide.md) | Dobavlenie transportov i provajderov |
 | [Nastrojka Matrix](docs/matrix-setup.md) | Transport Matrix |
 | [Avtomatizacija](docs/automation.md) | Cron, webhooks, heartbeat |
 | [Upravlenie servisami](docs/modules/service_management.md) | systemd / launchd / Task Scheduler |
@@ -304,6 +309,8 @@ MOPS zapuskaet oficialnye CLI kak subprocessy. Ni bolshe, ni menshe. Vasha podpi
 ---
 
 ## Uchastie v razrabotke
+
+Sm. [CONTRIBUTING.md](CONTRIBUTING.md) — nastrojka, trebovanija kachestva i pravila uchastija.
 
 ```bash
 git clone https://github.com/NathanMaine/memoriant-ops-bot.git
@@ -314,6 +321,8 @@ pytest && ruff format . && ruff check . && mypy memoriant_ops_bot
 ```
 
 ---
+
+[Politika bezopasnosti](SECURITY.md) · [Zhurnal izmenenij](CHANGELOG.md)
 
 <p align="center">
   <strong>Licenzija MIT</strong><br>

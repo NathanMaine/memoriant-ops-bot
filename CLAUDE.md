@@ -175,3 +175,13 @@ Nuances:
 - ruff strict lint profile
 - config deep-merge adds new defaults without dropping user keys
 - supervisor restart code is `42`
+
+## Additional Docs
+
+- `CONTRIBUTING.md` — contributor onboarding, quality gates, PR process
+- `SECURITY.md` — security model, trust boundaries, responsible disclosure
+- `CHANGELOG.md` — release history
+- `docs/use-cases.md` — 10 real-world workflow patterns with commands
+- `docs/FAQ.md` — common questions and answers
+- `docs/troubleshooting.md` — diagnostic steps organized by symptom
+- `docs/plugin-guide.md` — how to add new transports and CLI providers
