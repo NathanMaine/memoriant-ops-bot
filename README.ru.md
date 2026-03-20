@@ -20,10 +20,12 @@
 </p>
 
 <p align="center">
+  <img src="https://github.com/NathanMaine/memoriant-ops-bot/actions/workflows/tests.yml/badge.svg" alt="Tests">
   <img src="https://img.shields.io/badge/providers-Claude%20%7C%20Codex%20%7C%20Gemini-blue" alt="Provajdery">
   <img src="https://img.shields.io/badge/transport-Telegram%20%7C%20Matrix-green" alt="Transport">
   <img src="https://img.shields.io/badge/license-MIT-lightgrey" alt="Licenzija">
   <img src="https://img.shields.io/badge/python-3.11%2B-yellow" alt="Python">
+  <img src="https://img.shields.io/pypi/v/memoriant-ops-bot" alt="PyPI">
 </p>
 
 ---
